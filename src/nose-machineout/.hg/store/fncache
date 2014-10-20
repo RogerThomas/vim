@@ -1,0 +1,13 @@
+data/setup.cfg.i
+data/setup.py.i
+data/nose_machineout.egg-info/PKG-INFO.i
+data/nose_machineout.egg-info/requires.txt.i
+data/nose_machineout.egg-info/entry_points.txt.i
+data/.hgignore.i
+data/nose_machineout.egg-info/not-zip-safe.i
+data/PKG-INFO.i
+data/nose_machineout.egg-info/top_level.txt.i
+data/test_machineout.py.i
+data/nose_machineout.egg-info/SOURCES.txt.i
+data/machineout.py.i
+data/nose_machineout.egg-info/dependency_links.txt.i

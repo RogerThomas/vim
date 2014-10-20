@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: nose-machineout
+Version: 0.3-rc1
+Summary: Changes output of the nose testing tool into format easily parsable by a machine.  Originally written by Max Ischenko.
+Home-page: http://nose-machineout.googlecode.com
+Author: Mike Crute
+Author-email: mcrute@gmail.com
+License: BSD
+Description: UNKNOWN
+Keywords: test unittest nose
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Python Software Foundation License
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development

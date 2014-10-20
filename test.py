@@ -2,8 +2,6 @@ import requests
 from collections import Counter
 import datetime
 
-a =3
-
 
 class Item(object):
     def __init__(self, item):
@@ -36,4 +34,3 @@ class ItemsContainter(object):
 def get_feed(url):
     response = requests.get(url, headers=dict(Authorisation='Token asdasdasdasdasd'))
     return response.content.decode('ascii', 'ignore')
-    requests

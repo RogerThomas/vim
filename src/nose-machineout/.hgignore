@@ -1,0 +1,7 @@
+syntax: glob
+
+*.pyc
+*.pyo
+build/
+dist/
+nose_machineout.egg-info/

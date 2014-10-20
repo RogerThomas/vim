@@ -4,10 +4,12 @@ git submodule init
 git submodule update
 git submodule foreach git submodule init
 git submodule foreach git submodule update
+sudo apt-get install mercurial
 sudo apt-get install python-pip
 pip install nose
 pip install flake8
-pip install nose_machineout
+pip install -e "hg+https://code.google.com/p/nose-machineout/#egg=nose-machineout"
 pip install vim_bridge
+rm -rf vim-pyunit
 git clone git://github.com/nvie/vim-pyunit.git
 cp vim-pyunit/ftplugin/python_pyunit.vim ~/.vim/ftplugin

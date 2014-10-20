@@ -12,6 +12,7 @@ Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Bundle 'nvie/vim-flake8'
 Bundle 'scrooloose/syntastic'
 Bundle 'davidhalter/jedi-vim'
+Bundle 'airblade/vim-gitgutter'
 
 " The bundles you install will be listed here
 
