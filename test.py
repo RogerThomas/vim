@@ -1,7 +1,6 @@
 import requests
 from collections import Counter
 import datetime
-import re
 
 a =3
 
