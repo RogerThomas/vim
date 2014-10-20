@@ -9,6 +9,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Bundle 'nvie/vim-flake8'
 
 " The bundles you install will be listed here
 
@@ -25,3 +26,5 @@ augroup vimrc_autocmds
 
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
 set laststatus=2
+let g:flake8_max_line_length=99
+autocmd BufWritePost *.py call Flake8()

@@ -4,3 +4,8 @@ git submodule init
 git submodule update
 git submodule foreach git submodule init
 git submodule foreach git submodule update
+sudo apt-get install python-pip
+pip install nose
+pip install flake8
+pip install nose_machineout
+pip install vim_bridge
