@@ -14,6 +14,7 @@ Bundle 'nvie/vim-flake8'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'ervandew/supertab'
+Bundle 'vim-scripts/pylint-mode'
 
 " The bundles you install will be listed here
 
