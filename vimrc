@@ -13,7 +13,7 @@ Bundle 'nvie/vim-flake8'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'ervandew/supertab'
-Bundle 'vim-scripts/pylint-mode'
+" Bundle 'vim-scripts/pylint-mode'
 " Bundle 'scrooloose/syntastic'
 
 filetype plugin indent on
@@ -37,15 +37,7 @@ set sw=4
 set showmatch " Show matching brackets.
 set backspace=indent,eol,start
 let g:flake8_max_line_length=99
-autocmd BufWritePost *.py call Flake8()
-
-" Move to last poostion
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
-
-autocmd BufWritePre *.py :%s/\s\+$//e " remove trailing wwhitespace chars
-set background=dark
+" let g:PyLintOnWrite = 1
 
 function TrimEndLines()
     let save_cursor = getpos(".")
@@ -53,4 +45,12 @@ function TrimEndLines()
     call setpos('.', save_cursor)
 endfunction
 
-au BufWritePre *.py call TrimEndLines()
+
+autocmd BufWritePost *.py call Flake8()
+autocmd BufWritePre *.py :%s/\s\+$//e " remove trailing wwhitespace chars
+autocmd BufWritePre *.py call TrimEndLines()
+" Move to last poostion
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+
+set background=dark
