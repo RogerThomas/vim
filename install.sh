@@ -7,8 +7,13 @@ if [ "$(id -u)" != "0" ]; then
     exit 1
 fi
 # ---------------------------------------------------------
+rm -rf bundle
+rm -rf ftplugin
+rm -rf vim-pyunit
 
-rm -rf ~/.vim/bundle/vundle
+mkdir bundle
+mkdir ftplugin
+
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/vundle
 
 sudo apt-get install mercurial
@@ -19,9 +24,8 @@ pip install flake8
 pip install -e "hg+https://code.google.com/p/nose-machineout/#egg=nose-machineout"
 pip install vim_bridge
 
-rm -rf vim-pyunit
 git clone git://github.com/nvie/vim-pyunit.git
 
 cp vim-pyunit/ftplugin/python_pyunit.vim ~/.vim/ftplugin
-
+cp vimrc ~/.vimrc
 vim +PluginInstall +qall
