@@ -4,12 +4,14 @@ import datetime
 
 
 class Item(object):
+
     def __init__(self, item):
         for tag in item.findAll():
             setattr(self, tag.name, "".join(tag.contents))
 
 
 class ItemsContainter(object):
+
     def __init__(self):
         self.container = {}
         self.counter = Counter()
@@ -25,10 +27,12 @@ class ItemsContainter(object):
         self.datetimes.append(pubdate)
 
     def generate_report(self):
-        print self.counter.most_common(30)
+        print(self.counter.most_common(30))
         max_time = max(self.datetimes)
         min_time = min(self.datetimes)
-        print max_time - min_time
+        sd = 23
+
+        print(max_time - min_time)
 
 
 def get_feed(url):

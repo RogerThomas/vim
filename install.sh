@@ -7,6 +7,7 @@ if [ "$(id -u)" != "0" ]; then
     exit 1
 fi
 # ---------------------------------------------------------
+chown -R roger:roger .
 rm -rf bundle
 rm -rf ftplugin
 rm -rf vim-pyunit
@@ -28,4 +29,6 @@ git clone git://github.com/nvie/vim-pyunit.git
 
 cp vim-pyunit/ftplugin/python_pyunit.vim ~/.vim/ftplugin
 cp vimrc ~/.vimrc
+chown roger:roger ../.vimrc
+
 vim +PluginInstall +qall
