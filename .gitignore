@@ -1,3 +1,5 @@
 *.swp
 bundle/*
 src
+vim-pyunit
+ftplugin
