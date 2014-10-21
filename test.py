@@ -4,7 +4,6 @@ import datetime
 
 
 class Item(object):
-
     def __init__(self, item):
         for tag in item.findAll():
             setattr(self, tag.name, "".join(tag.contents))
@@ -30,8 +29,6 @@ class ItemsContainter(object):
         print(self.counter.most_common(30))
         max_time = max(self.datetimes)
         min_time = min(self.datetimes)
-        sd = 23
-
         print(max_time - min_time)
 
 
