@@ -33,6 +33,7 @@ set number
 set expandtab
 set tabstop=4
 set sw=4
+set softtabstop=4
 set showmatch " Show matching brackets.
 set backspace=indent,eol,start
 let g:flake8_max_line_length=99
