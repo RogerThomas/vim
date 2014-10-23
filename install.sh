@@ -29,6 +29,6 @@ git clone git://github.com/nvie/vim-pyunit.git
 
 cp vim-pyunit/ftplugin/python_pyunit.vim ~/.vim/ftplugin
 cp vimrc ~/.vimrc
-chown roger:roger ../.vimrc
+chown $USER:$USER ../.vimrc
 
 vim +PluginInstall +qall
