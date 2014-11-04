@@ -8,7 +8,7 @@ call vundle#rc()
 " required! 
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+" Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Bundle 'nvie/vim-flake8'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'airblade/vim-gitgutter'
@@ -37,6 +37,8 @@ set softtabstop=4
 set showmatch " Show matching brackets.
 set backspace=indent,eol,start
 let g:flake8_max_line_length=99
+let g:syntastic_python_flake8_args = "--ignore=E501"
+
 " let g:PyLintOnWrite = 1
 
 function TrimEndLines()
@@ -46,11 +48,12 @@ function TrimEndLines()
 endfunction
 
 
-autocmd BufWritePost *.py call Flake8()
+" autocmd BufWritePost *.py call Flake8()
+autocmd FileType python map <buffer> <f3> :call Flake8()<cr>
 autocmd BufWritePre *.py :%s/\s\+$//e " remove trailing wwhitespace chars
 autocmd BufWritePre *.py call TrimEndLines()
 " Move to last poostion
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-
+autocmd BufRead,BufNewFile *.alph set filetype=alph
 
 set background=dark
