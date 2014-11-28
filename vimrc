@@ -38,6 +38,9 @@ set showmatch " Show matching brackets.
 set backspace=indent,eol,start
 let g:flake8_max_line_length=99
 let g:syntastic_python_flake8_args = "--ignore=E501"
+" let g:flake8_show_in_gutter=0
+" let g:flake8_show_quickfix=0
+" let g:flake8_show_in_file=1
 
 " let g:PyLintOnWrite = 1
 
@@ -48,7 +51,7 @@ function TrimEndLines()
 endfunction
 
 
-" autocmd BufWritePost *.py call Flake8()
+autocmd BufWritePost *.py call Flake8()
 autocmd FileType python map <buffer> <f3> :call Flake8()<cr>
 autocmd BufWritePre *.py :%s/\s\+$//e " remove trailing wwhitespace chars
 autocmd BufWritePre *.py call TrimEndLines()
