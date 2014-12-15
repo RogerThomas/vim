@@ -29,6 +29,7 @@ git clone git://github.com/nvie/vim-pyunit.git
 
 cp vim-pyunit/ftplugin/python_pyunit.vim ~/.vim/ftplugin
 cp vimrc ~/.vimrc
+cp flake8 ~/.config/flake8
 chown $USER:$USER ../.vimrc
 
 vim +PluginInstall +qall
