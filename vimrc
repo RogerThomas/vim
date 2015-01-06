@@ -13,6 +13,7 @@ Bundle 'nvie/vim-flake8'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'ervandew/supertab'
+Bundle 'tmhedberg/SimpylFold'
 " Bundle 'scrooloose/syntastic'
 
 filetype plugin indent on
