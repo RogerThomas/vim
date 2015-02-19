@@ -14,6 +14,7 @@ Bundle 'davidhalter/jedi-vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'ervandew/supertab'
 Bundle 'tmhedberg/SimpylFold'
+Bundle 'elzr/vim-json'
 " Bundle 'scrooloose/syntastic'
 
 filetype plugin indent on
