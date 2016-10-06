@@ -8,13 +8,15 @@ call vundle#rc()
 " required! 
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
-" Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+" Not sure about powerline
+Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Bundle 'nvie/vim-flake8'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'ervandew/supertab'
 Bundle 'tmhedberg/SimpylFold'
 Bundle 'elzr/vim-json'
+" Bundle 'Valloric/YouCompleteMe'
 " Bundle 'scrooloose/syntastic'
 
 filetype plugin indent on
@@ -62,3 +64,16 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 autocmd BufRead,BufNewFile *.alph set filetype=alph
 
 set background=dark
+
+if has('python')
+py << EOF
+import os.path
+import sys
+import vim
+if 'VIRTUAL_ENV' in os.environ:
+    project_base_dir = os.environ['VIRTUAL_ENV']
+    sys.path.insert(0, project_base_dir)
+    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF
+endif

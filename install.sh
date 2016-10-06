@@ -2,10 +2,10 @@
 # ---------------------------------------------------------
 # Check if script is running with sudo privileges
 # ---------------------------------------------------------
-if [ "$(id -u)" != "0" ]; then
-    echo "This script must be run as root" 1>&2
-    exit 1
-fi
+#if [ "$(id -u)" != "0" ]; then
+#    echo "This script must be run as root" 1>&2
+#    exit 1
+#fi
 # ---------------------------------------------------------
 chown -R rogerthomas:rogerthomas .
 rm -rf bundle
@@ -19,6 +19,7 @@ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/vundle
 
 sudo apt-get install mercurial
 sudo apt-get install python-pip
+mv ftplugins/* ~/.vim/ftplugin
 
 pip install --upgrade nose
 pip install --upgrade flake8
