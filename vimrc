@@ -57,9 +57,9 @@ endfunction
 
 autocmd BufWritePost *.py call Flake8()
 autocmd FileType python map <buffer> <f3> :call Flake8()<cr>
-autocmd BufWritePre *.py :%s/\s\+$//e " remove trailing wwhitespace chars
-autocmd BufWritePre *.py call TrimEndLines()
-" Move to last poostion
+autocmd BufWritePre *.py,*.rb :%s/\s\+$//e " remove trailing wwhitespace chars
+autocmd BufWritePre *.py,*.rb call TrimEndLines()
+" Move to last position
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 autocmd BufRead,BufNewFile *.alph set filetype=alph
 
