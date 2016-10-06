@@ -19,7 +19,6 @@ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/vundle
 
 sudo apt-get install mercurial
 sudo apt-get install python-pip
-mv ftplugins/* ~/.vim/ftplugin
 
 pip install --upgrade nose
 pip install --upgrade flake8
@@ -29,6 +28,9 @@ pip install --upgrade vim_bridge
 git clone git://github.com/nvie/vim-pyunit.git
 
 cp vim-pyunit/ftplugin/python_pyunit.vim ~/.vim/ftplugin
+sudo cp ftplugins/* ftplugin
+
+rm -rf vim-pyunit
 cp vimrc ~/.vimrc
 cp flake8 ~/.config/flake8
 chown $USER:$USER ../.vimrc
