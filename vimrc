@@ -9,7 +9,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 " Not sure about powerline
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+" Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Bundle 'nvie/vim-flake8'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'airblade/vim-gitgutter'
@@ -18,6 +18,9 @@ Bundle 'tmhedberg/SimpylFold'
 Bundle 'elzr/vim-json'
 " Bundle 'Valloric/YouCompleteMe'
 " Bundle 'scrooloose/syntastic'
+Plugin 'jelera/vim-javascript-syntax'
+" Bundle 'wookiehangover/jshint.vim'
+Bundle 'pangloss/vim-javascript'
 
 filetype plugin indent on
 
@@ -57,8 +60,8 @@ endfunction
 
 autocmd BufWritePost *.py call Flake8()
 autocmd FileType python map <buffer> <f3> :call Flake8()<cr>
-autocmd BufWritePre *.py,*.rb :%s/\s\+$//e " remove trailing wwhitespace chars
-autocmd BufWritePre *.py,*.rb call TrimEndLines()
+autocmd BufWritePre *.py,*.rb,*.js,*.json :%s/\s\+$//e " remove trailing wwhitespace chars
+autocmd BufWritePre *.py,*.rb,*.js,*.json call TrimEndLines()
 " Move to last position
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 autocmd BufRead,BufNewFile *.alph set filetype=alph

@@ -10,7 +10,6 @@
 chown -R rogerthomas:rogerthomas .
 rm -rf bundle
 rm -rf ftplugin
-rm -rf vim-pyunit
 
 mkdir bundle
 mkdir ftplugin
@@ -25,10 +24,10 @@ pip install --upgrade flake8
 pip install -e "hg+https://code.google.com/p/nose-machineout/#egg=nose-machineout"
 pip install --upgrade vim_bridge
 
-git clone git://github.com/nvie/vim-pyunit.git
+# git clone git://github.com/nvie/vim-pyunit.git
 
-cp vim-pyunit/ftplugin/python_pyunit.vim ~/.vim/ftplugin
-sudo cp ftplugins/* ftplugin
+# cp vim-pyunit/ftplugin/python_pyunit.vim ~/.vim/ftplugin
+# sudo cp ftplugins/* ftplugin
 
 rm -rf vim-pyunit
 cp vimrc ~/.vimrc
