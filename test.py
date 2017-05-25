@@ -1,6 +1,7 @@
 import requests
 from collections import Counter
 import datetime
+import dateutil
 
 
 class Item(object):
@@ -35,3 +36,14 @@ class ItemsContainter(object):
 def get_feed(url):
     response = requests.get(url, headers=dict(Authorisation='Token asdasdasdasdasd'))
     return response.content.decode('ascii', 'ignore')
+
+
+def main():
+    import pandas as pd
+    df = pd.DataFrame(dict(a=[1, 2, 3, 4, 5], b=[5, 6, 7, 8, 9]))
+    print(df.describe())
+    dt = dateutil.parser.parse("Sat Oct 11 17:13:46 UTC 2003")
+
+
+if __name__ == "__main__":
+    main()

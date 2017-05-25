@@ -7,7 +7,8 @@
 #    exit 1
 #fi
 # ---------------------------------------------------------
-chown -R rogerthomas:rogerthomas .
+USER=`whoami`
+chown -R $USER:$USER .
 rm -rf bundle
 rm -rf ftplugin
 
