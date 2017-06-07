@@ -44,6 +44,8 @@ set softtabstop=4
 set showmatch " Show matching brackets.
 set backspace=indent,eol,start
 set mouse=a
+syntax on
+set ruler
 let g:syntastic_python_flake8_args = "--ignore=E501"
 " let g:flake8_show_in_gutter=0
 " let g:flake8_show_quickfix=0

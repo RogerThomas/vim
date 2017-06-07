@@ -8,7 +8,7 @@
 #fi
 # ---------------------------------------------------------
 USER=`whoami`
-chown -R $USER:$USER .
+chown -R $USER .
 rm -rf bundle
 rm -rf ftplugin
 
@@ -17,8 +17,8 @@ mkdir ftplugin
 
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/vundle
 
-sudo apt-get install mercurial
-sudo apt-get install python-pip
+brew install mercurial
+brew install python-pip
 
 pip install --upgrade nose
 pip install --upgrade flake8
@@ -33,6 +33,6 @@ pip install --upgrade vim_bridge
 rm -rf vim-pyunit
 cp vimrc ~/.vimrc
 cp flake8 ~/.config/flake8
-chown $USER:$USER ../.vimrc
+chown $USER ../.vimrc
 
 vim +PluginInstall +qall
