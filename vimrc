@@ -62,6 +62,7 @@ endfunction
 
 autocmd BufWritePost *.py call Flake8()
 autocmd FileType python map <buffer> <f3> :call Flake8()<cr>
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd BufWritePre *.py,*.rb,*.js,*.json :%s/\s\+$//e " remove trailing wwhitespace chars
 autocmd BufWritePre *.py,*.rb,*.js,*.json call TrimEndLines()
 " Move to last position
