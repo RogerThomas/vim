@@ -20,10 +20,11 @@ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/vundle
 brew install mercurial
 brew install python-pip
 
-pip install --upgrade nose
-pip install --upgrade flake8
-pip install -e "git+https://github.com/mcrute/nose-machineout#egg=nose_machineout"
-pip install --upgrade vim_bridge
+pip3 install --upgrade nose
+pip3 install --upgrade flake8
+pip3 install -e "git+https://github.com/mcrute/nose-machineout#egg=nose_machineout"
+pip3 install --upgrade vim_bridge
+pip3 install --upgrade isort
 
 # git clone git://github.com/nvie/vim-pyunit.git
 

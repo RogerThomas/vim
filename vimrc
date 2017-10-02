@@ -22,6 +22,8 @@ Plugin 'jelera/vim-javascript-syntax'
 " Bundle 'wookiehangover/jshint.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'jmcantrell/vim-virtualenv'
+Plugin 'fisadev/vim-isort'
+
 
 filetype plugin indent on
 
@@ -63,10 +65,11 @@ endfunction
 
 
 autocmd BufWritePost *.py call Flake8()
+autocmd BufWritePre *.py Isort!
 autocmd FileType python map <buffer> <f3> :call Flake8()<cr>
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
-autocmd BufWritePre *.py,*.rb,*.js,*.json :%s/\s\+$//e " remove trailing wwhitespace chars
-autocmd BufWritePre *.py,*.rb,*.js,*.json call TrimEndLines()
+autocmd BufWritePre *.py,*.rb,*.js,*.json,*.sql :%s/\s\+$//e " remove trailing wwhitespace chars
+autocmd BufWritePre *.py,*.rb,*.js,*.json,*.sql call TrimEndLines()
 " Move to last position
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 autocmd BufRead,BufNewFile *.alph set filetype=alph
