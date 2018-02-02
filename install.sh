@@ -33,6 +33,7 @@ pip3 install --upgrade isort
 
 rm -rf vim-pyunit
 cp vimrc ~/.vimrc
+cp isort.cfg ~/.isort.cfg
 cp flake8 ~/.config/flake8
 chown $USER ../.vimrc
 

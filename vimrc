@@ -65,7 +65,6 @@ endfunction
 
 
 autocmd BufWritePost *.py call Flake8()
-autocmd BufWritePre *.py Isort!
 autocmd FileType python map <buffer> <f3> :call Flake8()<cr>
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd BufWritePre *.py,*.rb,*.js,*.json,*.sql :%s/\s\+$//e " remove trailing wwhitespace chars
