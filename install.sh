@@ -15,7 +15,13 @@ rm -rf ftplugin
 mkdir bundle
 mkdir ftplugin
 
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/vundle
+# Ale
+# mkdir -p ~/.local/share/nvim/site/pack/git-plugins/start
+# git clone https://github.com/w0rp/ale.git ~/.local/share/nvim/site/pack/git-plugins/start/ale
+
+curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/vundle
 
 brew install mercurial
 brew install python-pip
@@ -33,8 +39,9 @@ pip3 install --upgrade isort
 
 rm -rf vim-pyunit
 cp vimrc ~/.vimrc
+cp vimrc ~/.config/nvim/init.vim
 cp isort.cfg ~/.isort.cfg
 cp flake8 ~/.config/flake8
 chown $USER ../.vimrc
 
-vim +PluginInstall +qall
+vim +PlugInstall +qall

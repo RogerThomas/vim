@@ -1,7 +1,7 @@
-import requests
-from collections import Counter
 import datetime
-import dateutil
+from collections import Counter
+
+import requests
 
 
 class Item(object):
@@ -40,9 +40,11 @@ def get_feed(url):
 
 def main():
     import pandas as pd
+    df = pd.DataFrame(data=1)
     df = pd.DataFrame(dict(a=[1, 2, 3, 4, 5], b=[5, 6, 7, 8, 9]))
-    print(df.describe())
-    dt = dateutil.parser.parse("Sat Oct 11 17:13:46 UTC 2003")
+    df.DataFrame()
+    pd.DataFrame()
+    df = pd.DataFrame([])
 
 
 if __name__ == "__main__":

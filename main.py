@@ -1,8 +1,9 @@
-import pandas as pd
+import numpy as np  # noqa: F401
+import pandas as pd  # noqa: F401
 
-
-
-import numpy as np
 
 def main():
+    pd.DataFrame()
+    pd.
+    qqqqq
     return 2
