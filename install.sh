@@ -15,27 +15,13 @@ rm -rf ftplugin
 mkdir bundle
 mkdir ftplugin
 
-# Ale
-# mkdir -p ~/.local/share/nvim/site/pack/git-plugins/start
-# git clone https://github.com/w0rp/ale.git ~/.local/share/nvim/site/pack/git-plugins/start/ale
-
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/vundle
-
-brew install mercurial
-brew install python-pip
-
-pip3 install --upgrade nose
-pip3 install --upgrade flake8
-pip3 install -e "git+https://github.com/mcrute/nose-machineout#egg=nose_machineout"
-pip3 install --upgrade vim_bridge
-pip3 install --upgrade isort
-
-# git clone git://github.com/nvie/vim-pyunit.git
-
-# cp vim-pyunit/ftplugin/python_pyunit.vim ~/.vim/ftplugin
-# sudo cp ftplugins/* ftplugin
+pip install --upgrade nose
+pip install --upgrade flake8
+pip install -e "git+https://github.com/mcrute/nose-machineout#egg=nose_machineout"
+pip install --upgrade vim_bridge
+pip install --upgrade isort
 
 rm -rf vim-pyunit
 cp vimrc ~/.vimrc
@@ -43,5 +29,8 @@ cp vimrc ~/.config/nvim/init.vim
 cp isort.cfg ~/.isort.cfg
 cp flake8 ~/.config/flake8
 chown $USER ../.vimrc
+
+mkdir -p ~/.vim/syntax
+cp syntax/python.vim ~/.vim/syntax
 
 vim +PlugInstall +qall

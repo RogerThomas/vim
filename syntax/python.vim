@@ -147,7 +147,7 @@ endif
 " Keywords
 "
 
-syn keyword pythonStatement     break continue del self
+syn keyword pythonStatement     break continue del self async
 syn keyword pythonStatement     exec return
 syn keyword pythonStatement     pass raise
 syn keyword pythonStatement     global assert

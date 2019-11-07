@@ -34,21 +34,32 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 "Plug 'Shougo/deoplete.nvim'
 "Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+"
+"
 Plug 'gmarik/vundle'
-Plug 'tpope/vim-fugitive'
+
+" Git commands, never used
+" Plug 'tpope/vim-fugitive'
+
+" You know what this does
 Plug 'nvie/vim-flake8'
+
+" Shows changes/additions on the left hand side
 Plug 'airblade/vim-gitgutter'
-Plug 'ervandew/supertab'
-Plug 'tmhedberg/SimpylFold'
+
+" Folds don't really use, maybe don't need, maybe slow
+" Plug 'tmhedberg/SimpylFold'
+
 Plug 'elzr/vim-json'
+Plug 'fisadev/vim-isort'
+Plug 'ervandew/supertab'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'pangloss/vim-javascript'
 Plug 'davidhalter/jedi-vim'
 Plug 'jmcantrell/vim-virtualenv'
-Plug 'fisadev/vim-isort'
+Plug 'psf/black'
 call plug#end()
 let g:deoplete#enable_at_startup = 1
-
 
 filetype plugin indent on
 
@@ -96,11 +107,11 @@ autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
 autocmd BufWritePost *.py call Flake8()
 autocmd FileType python map <buffer> <f3> :call Flake8()<cr>
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
-autocmd BufWritePre *.py,*.rb,*.js,*.json,*.sql,*.rst,Dockerfile :%s/\s\+$//e " remove trailing wwhitespace chars
-autocmd BufWritePre *.py,*.rb,*.js,*.json,*.sql,*.rst,Dockerfile call TrimEndLines()
+autocmd BufWritePre *.py,*.rb,*.js,*.json,*.sql,*.rst,Dockerfile,*.txt :%s/\s\+$//e " remove trailing wwhitespace chars
+autocmd BufWritePre *.py,*.rb,*.js,*.json,*.sql,*.rst,Dockerfile,*.txt call TrimEndLines()
 " Move to last position
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-autocmd BufRead,BufNewFile *.alph set filetype=alph
+autocmd BufNewFile,BufRead Jenkinsfile setf groovy
 
 set background=dark
 

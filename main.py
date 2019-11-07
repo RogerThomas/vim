@@ -4,6 +4,4 @@ import pandas as pd  # noqa: F401
 
 def main():
     pd.DataFrame()
-    pd.
-    qqqqq
     return 2

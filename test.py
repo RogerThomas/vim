@@ -11,14 +11,13 @@ class Item(object):
 
 
 class ItemsContainter(object):
-
     def __init__(self):
         self.container = {}
         self.counter = Counter()
         self.datetimes = []
 
     def add_item(self, item_soup):
-        title_key = "".join(item_soup.title.contents).replace(' ', '_').lower()
+        title_key = "".join(item_soup.title.contents).replace(" ", "_").lower()
         item_obj = Item(item_soup)
         self.counter.update(item_obj.description.split(" "))
         self.container[title_key] = item_obj
@@ -34,12 +33,13 @@ class ItemsContainter(object):
 
 
 def get_feed(url):
-    response = requests.get(url, headers=dict(Authorisation='Token asdasdasdasdasd'))
-    return response.content.decode('ascii', 'ignore')
+    response = requests.get(url, headers=dict(Authorisation="Token asdasdasdasdasd"))
+    return response.content.decode("ascii", "ignore")
 
 
 def main():
     import pandas as pd
+
     df = pd.DataFrame(data=1)
     df = pd.DataFrame(dict(a=[1, 2, 3, 4, 5], b=[5, 6, 7, 8, 9]))
     df.DataFrame()
