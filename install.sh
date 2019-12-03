@@ -15,6 +15,9 @@ rm -rf ftplugin
 mkdir bundle
 mkdir ftplugin
 
+rm /usr/local/bin/show_tests
+ln show_tests.py /usr/local/bin/show_tests
+
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 pip install --upgrade nose
