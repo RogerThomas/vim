@@ -54,7 +54,7 @@ def main(args):
             print(f"{cls_name: <{longest_cls_name}} - {method_name: <{longest_method_name}} - {i}")
             choices[i] = f"{file_path}:{cls_name}.{method_name}"
     test_path = choices[int(input("Please choose a test"))]
-    test_str = f"nosetests -sx {test_path}"
+    test_str = f"nosetests -sx --nologcapture {test_path}"
     os.system(f"echo '{test_str}' | pbcopy")
 
 

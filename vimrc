@@ -58,6 +58,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'davidhalter/jedi-vim'
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'psf/black'
+
+
 call plug#end()
 let g:deoplete#enable_at_startup = 1
 
@@ -68,7 +70,7 @@ augroup vimrc_autocmds
     autocmd!
     " highlight characters past column 90
     autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Black
-    autocmd FileType python match Excess /\%90v.*/
+    autocmd FileType python match Excess /\%100v.*/
     autocmd FileType python set nowrap
     augroup END
 
@@ -107,8 +109,8 @@ autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
 autocmd BufWritePost *.py call Flake8()
 autocmd FileType python map <buffer> <f3> :call Flake8()<cr>
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
-autocmd BufWritePre *.py,*.rb,*.js,*.json,*.sql,*.rst,Dockerfile,*.txt :%s/\s\+$//e " remove trailing wwhitespace chars
-autocmd BufWritePre *.py,*.rb,*.js,*.json,*.sql,*.rst,Dockerfile,*.txt call TrimEndLines()
+autocmd BufWritePre *.py,*.rb,*.js,*.json,*.sql,*.rst,*.vue,Dockerfile,*.txt :%s/\s\+$//e " Remove trailing wwhitespace chars
+autocmd BufWritePre *.py,*.rb,*.js,*.json,*.sql,*.rst,*.vue,Dockerfile,*.txt call TrimEndLines() " Remove trailing newline chars
 " Move to last position
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 autocmd BufNewFile,BufRead Jenkinsfile setf groovy
