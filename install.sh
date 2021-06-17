@@ -15,20 +15,19 @@ rm -rf ftplugin
 mkdir bundle
 mkdir ftplugin
 
-rm /usr/local/bin/show_tests
-ln show_tests.py /usr/local/bin/show_tests
+rm /usr/local/bin/show-tests
+ln show_tests.py /usr/local/bin/show-tests
 
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-pip install --upgrade nose
-pip install --upgrade flake8
-pip install -e "git+https://github.com/mcrute/nose-machineout#egg=nose_machineout"
-pip install --upgrade vim_bridge
-pip install --upgrade isort
+# pip install --upgrade nose
+# pip install --upgrade flake8
+# pip install -e "git+https://github.com/mcrute/nose-machineout#egg=nose_machineout"
+# pip install --upgrade vim_bridge
+# pip install --upgrade isort
 
 rm -rf vim-pyunit
 cp vimrc ~/.vimrc
-cp vimrc ~/.config/nvim/init.vim
 cp isort.cfg ~/.isort.cfg
 cp flake8 ~/.config/flake8
 chown $USER ../.vimrc

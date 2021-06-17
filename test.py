@@ -1,6 +1,8 @@
 import datetime
 from collections import Counter
 
+import pandas as pd
+
 import requests
 
 
@@ -10,7 +12,7 @@ class Item(object):
             setattr(self, tag.name, "".join(tag.contents))
 
 
-class ItemsContainter(object):
+class ItemsContainter:
     def __init__(self):
         self.container = {}
         self.counter = Counter()
@@ -30,21 +32,24 @@ class ItemsContainter(object):
         max_time = max(self.datetimes)
         min_time = min(self.datetimes)
         print(max_time - min_time)
+        return 1
 
 
 def get_feed(url):
-    response = requests.get(url, headers=dict(Authorisation="Token asdasdasdasdasd"))
+    response = requests.get(
+        url, headers=dict(Authorisation="Token asdasdasdasdasd")
+    ).make_this()
     return response.content.decode("ascii", "ignore")
 
 
 def main():
-    import pandas as pd
-
     df = pd.DataFrame(data=1)
     df = pd.DataFrame(dict(a=[1, 2, 3, 4, 5], b=[5, 6, 7, 8, 9]))
-    df.DataFrame()
+    ic = ItemsContainter()
     pd.DataFrame()
-    df = pd.DataFrame([])
+    print(df)
+
+    pd.DataFrame()
 
 
 if __name__ == "__main__":

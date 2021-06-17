@@ -32,12 +32,11 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
-"Plug 'Shougo/deoplete.nvim'
+" call plug#begin('~/.vim/plugged')
+
 "Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 "
 "
-Plug 'gmarik/vundle'
-
 " Git commands, never used
 " Plug 'tpope/vim-fugitive'
 
@@ -49,7 +48,7 @@ Plug 'airblade/vim-gitgutter'
 
 " Folds don't really use, maybe don't need, maybe slow
 " Plug 'tmhedberg/SimpylFold'
-
+"
 Plug 'elzr/vim-json'
 Plug 'fisadev/vim-isort'
 Plug 'ervandew/supertab'
@@ -57,24 +56,26 @@ Plug 'jelera/vim-javascript-syntax'
 Plug 'pangloss/vim-javascript'
 Plug 'davidhalter/jedi-vim'
 Plug 'jmcantrell/vim-virtualenv'
-Plug 'psf/black'
+Plug 'psf/black', { 'tag': '19.10b0' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'deoplete-plugins/deoplete-jedi'
+
+" Plug 'dense-analysis/ale'
 
 
 call plug#end()
-let g:deoplete#enable_at_startup = 1
 
 filetype plugin indent on
 
 " The rest of your config follows here
 augroup vimrc_autocmds
     autocmd!
-    " highlight characters past column 90
     autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Black
     autocmd FileType python match Excess /\%100v.*/
     autocmd FileType python set nowrap
     augroup END
 
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
+" set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
 set laststatus=2
 set list
 set number
@@ -85,15 +86,26 @@ set softtabstop=4
 set showmatch " Show matching brackets.
 set backspace=indent,eol,start
 set mouse=a
-syntax on
+" syntax on
 set ruler
-let g:syntastic_python_flake8_args = "--ignore=E501"
-let g:virtualenv_auto_activate = 1
-" let g:flake8_show_in_gutter=0
-" let g:flake8_show_quickfix=0
-" let g:flake8_show_in_file=1
+set encoding=utf-8
 
-" let g:PyLintOnWrite = 1
+
+" let g:flake8_show_in_gutter = 0
+" let g:pymode_rope = 0
+let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
+let g:ale_linters = {'javascript': ['pretier', 'eslint'], 'vue': ['eslint', 'vls']}
+let b:ale_linter_aliases = {'vue': ['vue', 'javascript']}
+let g:ale_linters_explicit = 1
+let g:ale_enabled = 1
+
+let g:deoplete#enable_at_startup = 1
+let g:virtualenv_auto_activate = 1
+let g:jedi#completions_enabled = 0
+let $NVIM_PYTHON_LOG_FILE="/tmp/nvim_log"
+let $NVIM_PYTHON_LOG_LEVEL="DEBUG"
+let g:SuperTabDefaultCompletionType = "<c-n>"  " By default tab is go up not down
+let g:python3_host_prog = '/Library/Frameworks/Python.framework/Versions/3.8/bin/python3'
 
 function TrimEndLines()
     let save_cursor = getpos(".")
@@ -109,8 +121,9 @@ autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
 autocmd BufWritePost *.py call Flake8()
 autocmd FileType python map <buffer> <f3> :call Flake8()<cr>
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
-autocmd BufWritePre *.py,*.rb,*.js,*.json,*.sql,*.rst,*.vue,Dockerfile,*.txt :%s/\s\+$//e " Remove trailing wwhitespace chars
-autocmd BufWritePre *.py,*.rb,*.js,*.json,*.sql,*.rst,*.vue,Dockerfile,*.txt call TrimEndLines() " Remove trailing newline chars
+autocmd Filetype vue setlocal ts=2 sts=2 sw=2
+autocmd BufWritePre *.py,*.rb,*.js,*.json,*.sql,*.rst,*.vue,*.md,Dockerfile,*.txt :%s/\s\+$//e " Remove trailing wwhitespace chars
+autocmd BufWritePre *.py,*.rb,*.js,*.json,*.sql,*.rst,*.vue,*.md,Dockerfile,*.txt call TrimEndLines() " Remove trailing newline chars
 " Move to last position
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 autocmd BufNewFile,BufRead Jenkinsfile setf groovy
