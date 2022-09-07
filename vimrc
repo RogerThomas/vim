@@ -57,10 +57,17 @@ Plug 'pangloss/vim-javascript'
 Plug 'davidhalter/jedi-vim'
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'psf/black', { 'tag': '19.10b0' }
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'deoplete-plugins/deoplete-jedi'
 
-" Plug 'dense-analysis/ale'
+" Plug 'Shougo/deoplete.nvim'
+"
+" https://github.com/Shougo/ddc.vim
+Plug 'Shougo/ddc.vim'
+Plug 'vim-denops/denops.vim'
+ 
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+
+Plug 'dense-analysis/ale'
 
 
 call plug#end()
@@ -99,13 +106,14 @@ let b:ale_linter_aliases = {'vue': ['vue', 'javascript']}
 let g:ale_linters_explicit = 1
 let g:ale_enabled = 1
 
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
 let g:virtualenv_auto_activate = 1
 let g:jedi#completions_enabled = 0
 let $NVIM_PYTHON_LOG_FILE="/tmp/nvim_log"
 let $NVIM_PYTHON_LOG_LEVEL="DEBUG"
 let g:SuperTabDefaultCompletionType = "<c-n>"  " By default tab is go up not down
-let g:python3_host_prog = '/Library/Frameworks/Python.framework/Versions/3.8/bin/python3'
+" let g:python3_host_prog = '/Library/Frameworks/Python.framework/Versions/3.8/bin/python3'
+let g:python3_host_prog = '/usr/local/Frameworks/Python.framework/Versions/3.9/bin/python3.9'
 
 function TrimEndLines()
     let save_cursor = getpos(".")
@@ -114,7 +122,7 @@ function TrimEndLines()
 endfunction
 
 " deoplete tab-complete
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " tern
 autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
 
@@ -122,8 +130,11 @@ autocmd BufWritePost *.py call Flake8()
 autocmd FileType python map <buffer> <f3> :call Flake8()<cr>
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype vue setlocal ts=2 sts=2 sw=2
-autocmd BufWritePre *.py,*.rb,*.js,*.json,*.sql,*.rst,*.vue,*.md,Dockerfile,*.txt :%s/\s\+$//e " Remove trailing wwhitespace chars
-autocmd BufWritePre *.py,*.rb,*.js,*.json,*.sql,*.rst,*.vue,*.md,Dockerfile,*.txt call TrimEndLines() " Remove trailing newline chars
+autocmd Filetype mustache setlocal ts=2 sts=2 sw=2
+autocmd BufWritePre *.py,*.rb,*.js,*.json,*.sql,*.rst,*.vue,*.md,*.Dockerfile,*.txt,*.groovy,*.yml,*.yaml :%s/\s\+$//e " Remove trailing whitespace chars
+autocmd BufWritePre *.py,*.rb,*.js,*.json,*.sql,*.rst,*.vue,*.md,*.Dockerfile,*.txt,*.groovy,*.yml,*.yaml call TrimEndLines() " Remove trailing newline chars
+autocmd BufWritePre * :%s/\s\+$//e
+
 " Move to last position
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 autocmd BufNewFile,BufRead Jenkinsfile setf groovy

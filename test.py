@@ -19,6 +19,8 @@ class ItemsContainter:
         self.datetimes = []
 
     def add_item(self, item_soup):
+        """Add item
+        """
         title_key = "".join(item_soup.title.contents).replace(" ", "_").lower()
         item_obj = Item(item_soup)
         self.counter.update(item_obj.description.split(" "))
@@ -42,14 +44,16 @@ def get_feed(url):
     return response.content.decode("ascii", "ignore")
 
 
+
 def main():
     df = pd.DataFrame(data=1)
     df = pd.DataFrame(dict(a=[1, 2, 3, 4, 5], b=[5, 6, 7, 8, 9]))
     ic = ItemsContainter()
     pd.DataFrame()
     print(df)
-
     pd.DataFrame()
+    pd.DataFrame()
+    from pandas import array
 
 
 if __name__ == "__main__":

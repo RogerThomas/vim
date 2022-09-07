@@ -18,6 +18,15 @@ mkdir ftplugin
 rm /usr/local/bin/show-tests
 ln show_tests.py /usr/local/bin/show-tests
 
+rm /usr/local/bin/dx
+ln bin/dx.py /usr/local/bin/dx
+
+rm /usr/local/bin/dxi
+ln bin/dxi.py /usr/local/bin/dxi
+
+rm /usr/local/bin/jcurl
+ln jcurl.sh /usr/local/bin/jcurl
+
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # pip install --upgrade nose
@@ -33,6 +42,9 @@ cp flake8 ~/.config/flake8
 chown $USER ../.vimrc
 
 mkdir -p ~/.vim/syntax
-cp syntax/python.vim ~/.vim/syntax
+NVIMV=`nvim --version | head -1 | sed -e 's#.*v\(\)#\1#'`
+echo NVIM version: $NVIMV
+cp syntax/python.vim /usr/local/Cellar/neovim/$NVIMV/share/nvim/runtime/syntax/python.vim
 
-vim +PlugInstall +qall
+nvim +PlugInstall +qall
+nvim +UpdateRemotePlugins

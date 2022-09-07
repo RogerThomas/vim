@@ -47,11 +47,16 @@ def main(args):
             continue
         i += 1
         method_name = "All"
-        print(f"{cls_name: <{longest_cls_name}} - {method_name: <{longest_method_name}} - {i}")
+        print(
+            f"{i} - {cls_name: <{longest_cls_name}} - {method_name: <{longest_method_name}} - {i}"
+        )
         choices[i] = f"{file_path}:{cls_name}"
         for method_name in tests_found[cls_name]:
             i += 1
-            print(f"{cls_name: <{longest_cls_name}} - {method_name: <{longest_method_name}} - {i}")
+            print(
+                f"{i} - {cls_name: <{longest_cls_name}} - "
+                f"{method_name: <{longest_method_name}} - {i}"
+            )
             choices[i] = f"{file_path}:{cls_name}.{method_name}"
     test_path = choices[int(input("Please choose a test"))]
     test_str = f"nosetests -sx --nologcapture {test_path}"
